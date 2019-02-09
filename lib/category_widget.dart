@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'unit_widget.dart';
 
 final _rowHeight = 100.0;
 final _borderRadius = BorderRadius.circular(_rowHeight / 2);
@@ -7,12 +8,18 @@ class CatergoryWidget extends StatelessWidget {
   final String name;
   final IconData icon;
   final ColorSwatch color;
+  final List<UnitWidget> units;
 
-  const CatergoryWidget(
-      {Key key, @required this.name, @required this.icon, @required this.color})
-      : assert(name != null),
+  const CatergoryWidget({
+    Key key,
+    @required this.name,
+    @required this.icon,
+    @required this.color,
+    @required this.units,
+  })  : assert(name != null),
         assert(icon != null),
         assert(color != null),
+        assert(units != null),
         super(key: key);
 
   @override

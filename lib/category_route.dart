@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'categoryWidget.dart';
+import 'category_widget.dart';
+import 'unit_widget.dart';
 
 final _backgroundColor = Colors.teal[200];
 
@@ -35,6 +36,16 @@ class CategoryRoute extends StatelessWidget {
     );
   }
 
+  List<UnitWidget> _retrieveUnitList(String categoryName) {
+    return List.generate(10, (int i) {
+      i += 1;
+      return UnitWidget(
+        name: '$categoryName Unit $i',
+        conversion: i.toDouble(),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final categories = <CatergoryWidget>[];
@@ -44,6 +55,7 @@ class CategoryRoute extends StatelessWidget {
         name: _categoryNames[i],
         icon: Icons.play_arrow,
         color: _baseColors[i],
+        units: _retrieveUnitList(_categoryNames[i]),
       ));
     }
 
